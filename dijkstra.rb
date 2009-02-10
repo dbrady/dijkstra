@@ -8,4 +8,3 @@ include Rubygame
 
 setup = Setup.new
 setup.run
-
