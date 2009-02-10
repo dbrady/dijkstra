@@ -1,0 +1,68 @@
+= Dijkstra
+
+This is a silly Rubygame demo that visualizes Dijkstra's algorithm for
+computing the minimal spanning tree. His algorithm is essentially:
+
+1. Start with all the nodes in the "Outs" graph. Choose one node at
+random and move it to the "Ins" graph.
+
+2. All nodes in the Outs graph calculate the distance to the new Ins
+node. Out nodes keep track of the closest In node; if this one closer,
+make this the preferred node.
+
+3. Find the Out node with the shortest distance, and link it to the
+Ins graph. This node is now the new Ins node.
+
+4. If there are any nodes left in Ins, go back to step 2.
+
+= Usage
+
+Run it. Watch the pretty lines. That's it, that's the whole app. Hit
+ESC to quit at any time.
+
+Legend:
+
+* Yellow circles are unconnected, Outs nodes.
+* Yellow lines are preferred connections, the best connection to the
+  Ins graph that this node can make so far.
+* Green circles are connected, Ins nodes.
+* Green lines are the finalized links, the best possible connections.
+
+When the program finishes, the green links represent the minimum
+spanning tree.
+
+= Installation
+
+To run dijkstra, just run dijkstra.rb. But first, you need Rubygame.
+These instructions detail how to set that up.
+
+On MacOSX:
+
+Condensed from http://rubygame.sourceforge.net/doc/2_2_0/files/doc/macosx_install_rdoc.html
+
+  sudo port install libsdl
+  sudo port install libsdl_gfx libsdl_image libsdl_mixer libsdl_ttf
+  wget http://www.kumaryu.net/?c=plugin;plugin=attach_download;p=%28Ruby%29+Ruby%2FSDL%CD%D1ruby;file_name=rsdl.tar.gz 
+  tar -zxvf rsdl.tar.gz
+  cd rsdl
+  make
+  sudo cp rsdl /usr/local/bin
+
+If any of that doesn't work on your machine, you're screwed. Go ask
+Google; I have no clue how to debug SDL setup. Sorry about that.
+
+On other OSes:
+
+Noodle around on http://rubygame.sourceforge.net/
+
+
+= Running Dijkstra
+
+== MacOSX:
+
+  rsdl dijkstra.rb
+
+== Linux:
+
+  ruby dijkstra.rb
+
